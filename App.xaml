@@ -1,0 +1,495 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Namada_Maui"
+             xmlns:fontImage="clr-namespace:Namada_Maui.Resources.Icons"
+             x:Class="Namada_Maui.App">
+    
+    <Application.Resources>
+
+        <ResourceDictionary>
+
+            <ResourceDictionary Source="Resources/Themes/DarkTheme.xaml"/>
+
+            <!-- FontImage -->
+
+            <FontImage x:Key="User" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="22" Glyph="{x:Static fontImage:IconFont.User}"/>
+
+            <FontImage x:Key="Users" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="22" Glyph="{x:Static fontImage:IconFont.Users}"/>
+
+            <FontImage x:Key="UserFriends" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="22" Glyph="{x:Static fontImage:IconFont.UserFriends}"/>
+
+            <FontImage x:Key="ExchangeAlt" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="22" Glyph="{x:Static fontImage:IconFont.ExchangeAlt}"/>
+
+            <FontImage x:Key="Cube" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="22" Glyph="{x:Static fontImage:IconFont.Cube}"/>
+
+            <FontImage x:Key="Cubes" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="22" Glyph="{x:Static fontImage:IconFont.Cubes}"/>
+
+            <FontImage x:Key="Wrench" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="22" Glyph="{x:Static fontImage:IconFont.Wrench}"/>
+
+            <FontImage x:Key="ChartArea" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="22" Glyph="{x:Static fontImage:IconFont.ChartArea}"/>
+
+            <FontImage x:Key="ChartBar" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="22" Glyph="{x:Static fontImage:IconFont.ChartBar}"/>
+
+            <FontImage x:Key="ChartLine" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="22" Glyph="{x:Static fontImage:IconFont.ChartLine}"/>
+
+            <FontImage x:Key="ChartPie" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="22" Glyph="{x:Static fontImage:IconFont.ChartPie}"/>
+
+            <FontImage x:Key="Plus" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="24" Glyph="{x:Static fontImage:IconFont.Plus}"/>
+
+            <FontImage x:Key="Edit" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="24" Glyph="{x:Static fontImage:IconFont.Edit}"/>
+
+            <FontImage x:Key="Save" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="24" Glyph="{x:Static fontImage:IconFont.Save}"/>
+
+            <FontImage x:Key="AngleDoubleDown" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="20" Glyph="{x:Static fontImage:IconFont.AngleDoubleDown}"/>
+
+            <FontImage x:Key="Undo" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="24" Glyph="{x:Static fontImage:IconFont.Undo}"/>
+
+            <FontImage x:Key="Recycle" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="24" Glyph="{x:Static fontImage:IconFont.Recycle}"/>
+
+
+            <FontImage x:Key="Trash" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="21" Glyph="{x:Static fontImage:IconFont.Trash}"/>
+
+            <FontImage x:Key="Paste" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="22" Glyph="{x:Static fontImage:IconFont.Paste}"/>
+
+            <FontImage x:Key="Search" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="24" Glyph="{x:Static fontImage:IconFont.Search}"/>
+
+            <FontImage x:Key="Copy" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="18" Glyph="{x:Static fontImage:IconFont.Copy}"/>
+
+            <FontImage x:Key="Exclamation" Color="{StaticResource PrimaryAccentColor}" FontFamily="FontAwesome" Size="18" Glyph="{x:Static fontImage:IconFont.ExclamationCircle}"/>
+
+            <FontImage x:Key="AngleUp" Color="{StaticResource PrimaryTextColor}" FontFamily="FontAwesome" Size="22" Glyph="{x:Static fontImage:IconFont.AngleUp}"/>
+
+            <FontImage x:Key="AngleDown" Color="{StaticResource PrimaryTextColor}" FontFamily="FontAwesome" Size="22" Glyph="{x:Static fontImage:IconFont.AngleDown}"/>
+
+
+            <!-- Page -->
+
+            <Style TargetType="Page" ApplyToDerivedTypes="True">
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
+            </Style>
+
+            <!-- Shell -->
+
+            <Style TargetType="Shell" ApplyToDerivedTypes="True">
+                <Setter Property="Shell.BackgroundColor" Value="{DynamicResource PrimaryColor}" />
+                <Setter Property="Shell.ForegroundColor" Value="{DynamicResource PrimaryAccentColor}" />
+                <Setter Property="Shell.FlyoutBackground" Value="{DynamicResource PrimaryColor}" />
+                <Setter Property="Shell.TitleColor" Value="{DynamicResource PrimaryAccentTextColor}" />
+                <Setter Property="Shell.DisabledColor" Value="Red" />
+                <Setter Property="Shell.UnselectedColor" Value="Red" />
+                <Setter Property="Shell.NavBarHasShadow" Value="False" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource PrimaryColor}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="{DynamicResource SecondaryAccentColor}" />
+                <Setter Property="Shell.TabBarTitleColor" Value="{DynamicResource SecondaryAccentTextColor}" />
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{DynamicResource PrimaryAccentTextColor}" />
+            </Style>
+
+            <!--#-->
+            
+            <!-- StackLayout -->
+
+            <!--<Style TargetType="StackLayout">
+
+                <Setter Property="Spacing" Value="8"/>
+
+            </Style>-->
+
+            <!-- Border -->
+
+            <Style TargetType="Border">
+                <Setter Property="Padding" Value="12"/>
+                <Setter Property="StrokeShape" Value="RoundRectangle 14" />
+                <Setter Property="StrokeThickness" Value="0" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource TertiaryColor}" />
+            </Style>
+
+            <!-- Border Expanded -->
+            
+            <Style x:Key="StatusBlockBorderStyle" TargetType="Border">
+                <Setter Property="BackgroundColor" Value="{DynamicResource ThirdColor}"/>
+                <Style.Triggers>
+                    <DataTrigger TargetType="Border" Binding="{Binding Status}" Value="True">
+                        <Setter Property="BackgroundColor" Value="{DynamicResource FirstColor}"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Border" Binding="{Binding Status}" Value="False">
+                        <Setter Property="BackgroundColor" Value="{DynamicResource SecondColor}"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="EditBorderStyle" TargetType="Border">
+                <Setter Property="Padding" Value="8,0,8,0"/>
+                <Setter Property="StrokeShape" Value="RoundRectangle 8" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}" />
+            </Style>
+
+            <!-- Frame -->
+
+            <Style TargetType="Frame">
+                <Setter Property="Padding" Value="12"/>
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource TertiaryColor}" />
+                <Setter Property="BorderColor" Value="Transparent" />
+                <Setter Property="HasShadow" Value="False" />
+            </Style>
+
+            <Style x:Key="BlockFrameStyle" TargetType="Frame">
+                <Setter Property="Padding" Value="10,6"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource FridayColor}" />
+                <Setter Property="IsClippedToBounds" Value="True"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+            </Style>
+
+            <!-- Frame Expanded -->
+
+            <Style x:Key="EditFrameStyle" TargetType="Frame">
+                <Setter Property="Padding" Value="8,0,8,0"/>
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}" />
+            </Style>
+
+            <Style x:Key="StepFrameStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="8,2,8,2"/>
+                <Setter Property="Padding" Value="10,10,16,10"/>
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource TertiaryColor}"/>
+                <!--<Style.Triggers>
+    <DataTrigger TargetType="Frame" Binding="{Binding Done}" Value="True">
+        <Setter Property="BackgroundColor" Value="{DynamicResource TertiaryColor}"/>
+    </DataTrigger>
+</Style.Triggers>-->
+            </Style>
+
+            <Style x:Key="InfoFrameStyle" TargetType="Frame">
+                <Setter Property="Padding" Value="8,8,8,8"/>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}"/>
+            </Style>
+
+            <Style x:Key="ListFrameStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="10,2,10,2"/>
+                <Setter Property="Padding" Value="20,8,20,8"/>
+                <Setter Property="CornerRadius" Value="12" />
+                <Style.Triggers>
+                    <DataTrigger TargetType="Frame" Binding="{Binding IsSelect}" Value="True">
+                        <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryAccentColor}"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="ThemeFrameStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="10,2,10,2"/>
+                <Setter Property="Padding" Value="20,8,20,8"/>
+                <Setter Property="CornerRadius" Value="12" />
+                <Style.Triggers>
+                    <DataTrigger TargetType="Frame" Binding="{Binding IsSelect}" Value="True">
+                        <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryAccentColor}"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Frame" Binding="{Binding IsSelect}" Value="False">
+                        <Setter Property="BackgroundColor" Value="{DynamicResource TertiaryColor}"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <!-- Frame Target -->
+
+            <Style x:Key="TargetGroupFrameStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="8,2,8,2"/>
+                <Setter Property="Padding" Value="16,8,16,8"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}"/>
+            </Style>
+
+            <Style x:Key="TargetFrameStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="8,2,8,2"/>
+                <Setter Property="Padding" Value="10,10,16,10"/>
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource SecondColor}"/>
+                <Style.Triggers>
+                    <DataTrigger TargetType="Frame" Binding="{Binding Done}" Value="True">
+                        <Setter Property="BackgroundColor" Value="{DynamicResource ThirdColor}"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Frame" Binding="{Binding Done}" Value="False">
+                        <Setter Property="BackgroundColor" Value="{DynamicResource FourthColor}"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="StepTargetFrameStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="8,2,8,2"/>
+                <Setter Property="Padding" Value="10,10,16,10"/>
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource TertiaryColor}"/>
+                <!--<Style.Triggers>
+                    <DataTrigger TargetType="Frame" Binding="{Binding Done}" Value="True">
+                        <Setter Property="BackgroundColor" Value="{DynamicResource TertiaryColor}"/>
+                    </DataTrigger>
+                </Style.Triggers>-->
+            </Style>
+
+            <!-- Button -->
+
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource QuaternaryColor}" />
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="BorderWidth" Value="0"/>
+                <Setter Property="CornerRadius" Value="8"/>
+                <Setter Property="Padding" Value="10"/>
+            </Style>
+
+            <!-- Label Basic -->
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <!-- Label Expanded -->
+
+            <Style x:Key="AccentAPILabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource SecondaryAccentTextColor}"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+            </Style>
+
+            <Style x:Key="AccentLanguageLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource SecondaryAccentTextColor}"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+                <Style.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding Language}" Value="en">
+                        <Setter Property="Text" Value="English"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Label" Binding="{Binding Language}" Value="ru">
+                        <Setter Property="Text" Value="Русский"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="AccentThemeLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource SecondaryAccentTextColor}"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+                <Style.Triggers>
+                    <DataTrigger TargetType="Label" Binding="{Binding Theme}" Value="0">
+                        <Setter Property="Text" Value="Default"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Label" Binding="{Binding Theme}" Value="1">
+                        <Setter Property="Text" Value="Light"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Label" Binding="{Binding Theme}" Value="2">
+                        <Setter Property="Text" Value="Dark"/>
+                    </DataTrigger>
+                    <DataTrigger TargetType="Label" Binding="{Binding Theme}" Value="3">
+                        <Setter Property="Text" Value="Classic"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <!-- === -->
+
+            <Style x:Key="LargeHeadingExpanderLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            </Style>
+
+            <Style x:Key="MediumHeadingExpanderLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            </Style>
+
+            <!-- === -->
+
+            <Style x:Key="LargeHeadingLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource FridayTextColor}"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="MaxLines" Value="1"/>
+            </Style>
+
+            <Style x:Key="MediumHeadingLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource FridayTextColor}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="MaxLines" Value="1"/>
+            </Style>
+
+            <Style x:Key="SmallHeadingLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource FridayTextColor}"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="MaxLines" Value="1"/>
+            </Style>
+
+            <Style x:Key="MicroHeadingLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource FridayTextColor}"/>
+                <Setter Property="FontSize" Value="Micro"/>
+            </Style>
+
+            <!-- === -->
+
+            <Style x:Key="LargeLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="MaxLines" Value="1"/>
+            </Style>
+
+            <Style x:Key="MediumLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="MaxLines" Value="1"/>
+            </Style>
+
+            <Style x:Key="SmallLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="MaxLines" Value="2"/>
+            </Style>
+
+            <Style x:Key="MicroLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="Micro"/>
+            </Style>
+
+            <!-- === -->
+
+            <Style x:Key="LargeCollectionViewStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="MaxLines" Value="1"/>
+            </Style>
+
+            <Style x:Key="MediumCollectionViewStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="MaxLines" Value="1"/>
+            </Style>
+
+            <Style x:Key="SmallCollectionViewStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="LineBreakMode" Value="MiddleTruncation"/>
+                <Setter Property="MaxLines" Value="1"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+            </Style>
+
+            <Style x:Key="MicroCollectionViewStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="Micro"/>
+                <Setter Property="LineBreakMode" Value="MiddleTruncation"/>
+                <Setter Property="MaxLines" Value="1"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"/>
+            </Style>
+
+            <!-- === -->
+
+            <Style x:Key="NoRecordLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource TertiaryTextColor}"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="FontAttributes" Value="None"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+                <Setter Property="MaxLines" Value="2"/>
+            </Style>
+
+            <!-- Entry Basic -->
+
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="4,8,4,8" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Entry Expanded -->
+
+            <!-- Editor Basic -->
+
+            <Style TargetType="Editor">
+                <Setter Property="Editor.AutoSize" Value="TextChanges"/>
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <!-- Editor Expanded -->
+
+            <!-- Picker Basic -->
+
+            <Style TargetType="Picker">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="4,8,4,8" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Picker Expanded -->
+
+            <!-- DatePicker Basic -->
+
+            <Style TargetType="DatePicker">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="4,8,4,8" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- DatePicker Expanded -->
+
+            <!-- TimePicker Basic -->
+
+            <Style TargetType="TimePicker">
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="4,8,4,8" />
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- TimePicker Expanded -->
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+
+</Application>

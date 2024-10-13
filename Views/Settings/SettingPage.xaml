@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localization="clr-namespace:Namada_Maui.Resources.Localization"
+             x:Class="Namada_Maui.Views.Settings.SettingPage"
+             Title="{x:Static localization:Language.Settings}">
+
+    <ContentPage.Content>
+
+        <ScrollView>
+
+            <StackLayout Spacing="6" Margin="12">
+
+                <!--<Frame>
+
+                    <StackLayout Orientation="Vertical" Spacing="12">
+
+                        <StackLayout Orientation="Horizontal" Margin="4,0,6,0" HorizontalOptions="FillAndExpand">
+
+                            <Label HorizontalOptions="Start">
+
+                                <Label.FormattedText>
+
+                                    <FormattedString>
+
+                                        <Span Text="API" FontAttributes="Bold"/>
+                                        <Span Text=":" FontAttributes="Bold"/>
+
+                                    </FormattedString>
+
+                                </Label.FormattedText>
+
+                            </Label>
+
+                            <Label Style="{StaticResource AccentAPILabelStyle}" Text="https://namada-rpc.palamar.io" HorizontalOptions="EndAndExpand"/>
+
+                        </StackLayout>
+
+                        <Button Text="Change API" Command="{Binding ApiCommand}" HorizontalOptions="FillAndExpand"/>
+
+                    </StackLayout>
+
+                </Frame>-->
+
+                <Frame>
+
+                    <StackLayout Orientation="Vertical" Spacing="12">
+
+                        <StackLayout Orientation="Horizontal" Margin="4,0,6,0">
+
+                            <Label HorizontalOptions="StartAndExpand">
+
+                                <Label.FormattedText>
+
+                                    <FormattedString>
+
+                                        <Span Text="{x:Static localization:Language.LanguageSpeech}" FontAttributes="Bold"/>
+                                        <Span Text=":" FontAttributes="Bold"/>
+
+                                    </FormattedString>
+
+                                </Label.FormattedText>
+
+                            </Label>
+
+                            <Label Style="{StaticResource AccentLanguageLabelStyle}"/>
+
+                        </StackLayout>
+
+                        <Button Text="{x:Static localization:Language.ChangeLanguage}" Command="{Binding LocalizationCommand}" HorizontalOptions="FillAndExpand"/>
+
+                    </StackLayout>
+
+                </Frame>
+
+                <Frame>
+
+                    <StackLayout Orientation="Vertical" Spacing="12">
+
+                        <StackLayout Orientation="Horizontal" Margin="4,0,6,0">
+
+                            <Label HorizontalOptions="StartAndExpand">
+
+                                <Label.FormattedText>
+
+                                    <FormattedString>
+
+                                        <Span Text="{x:Static localization:Language.Theme}" FontAttributes="Bold"/>
+                                        <Span Text=":" FontAttributes="Bold"/>
+
+                                    </FormattedString>
+
+                                </Label.FormattedText>
+
+                            </Label>
+
+                            <Label Style="{StaticResource AccentThemeLabelStyle}"/>
+
+                        </StackLayout>
+
+                        <Button Text="{x:Static localization:Language.ChangeTheme}" Command="{Binding ThemeCommand}" HorizontalOptions="FillAndExpand"/>
+
+                    </StackLayout>
+
+                </Frame>
+
+                <Frame Style="{StaticResource InfoFrameStyle}">
+
+                    <Label Text="{x:Static localization:Language.HelpOffers}" FontSize="14" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+                </Frame>
+
+                <Frame Padding="16,12,16,12">
+
+                    <VerticalStackLayout Spacing="16">
+
+                        <!--<HorizontalStackLayout>
+
+                            <Label Text="{x:Static localization:Language.WriteReview}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+
+                                <Label.GestureRecognizers>
+
+                                    <TapGestureRecognizer Command="{Binding WriteReviewCommand}" NumberOfTapsRequired="1"/>
+
+                                </Label.GestureRecognizers>
+
+                            </Label>
+
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout>
+
+                            <Label Text="{x:Static localization:Language.PutRating}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+
+                                <Label.GestureRecognizers>
+
+                                    <TapGestureRecognizer Command="{Binding PutRatingCommand}" NumberOfTapsRequired="1"/>
+
+                                </Label.GestureRecognizers>
+
+                            </Label>
+
+                        </HorizontalStackLayout>-->
+
+                        <HorizontalStackLayout>
+
+                            <Label Text="{x:Static localization:Language.ShareWithFriends}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+
+                                <Label.GestureRecognizers>
+
+                                    <TapGestureRecognizer Command="{Binding ShareWithFriendsCommand}" NumberOfTapsRequired="1"/>
+
+                                </Label.GestureRecognizers>
+
+                            </Label>
+
+                        </HorizontalStackLayout>
+
+                        <!--<StackLayout Orientation="Horizontal">
+
+                        <Label Text="{x:Static localization:Language.WriteDeveloper}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+
+                            <Label.GestureRecognizers>
+
+                                <TapGestureRecognizer Command="{Binding WriteDeveloperCommand}" NumberOfTapsRequired="1"/>
+
+                            </Label.GestureRecognizers>
+
+                        </Label>
+
+                    </StackLayout>-->
+
+                        <!--<StackLayout Orientation="Horizontal" IsVisible="False">
+
+    <Label AutomationId="103" Text="Поддержать проект" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+
+        <Label.GestureRecognizers>
+
+            <TapGestureRecognizer Tapped="SelectTapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+
+        </Label.GestureRecognizers>
+
+    </Label>
+
+</StackLayout>
+
+
+
+<StackLayout Orientation="Horizontal" IsVisible="False">
+
+    <Label AutomationId="105" Text="Сообщить об ошибке в приложении" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+
+        <Label.GestureRecognizers>
+
+            <TapGestureRecognizer Tapped="SelectTapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+
+        </Label.GestureRecognizers>
+
+    </Label>
+
+</StackLayout>
+
+<StackLayout Orientation="Horizontal" IsVisible="False">
+
+    <Label AutomationId="106" Text="Помогите перевести приложение" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+
+        <Label.GestureRecognizers>
+
+            <TapGestureRecognizer Tapped="SelectTapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+
+        </Label.GestureRecognizers>
+
+    </Label>
+
+</StackLayout>
+
+<StackLayout Orientation="Horizontal" IsVisible="False">
+
+    <Label AutomationId="107" Text="Сообщить об ошибке перевода" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+
+        <Label.GestureRecognizers>
+
+            <TapGestureRecognizer Tapped="SelectTapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+
+        </Label.GestureRecognizers>
+
+    </Label>
+
+</StackLayout>-->
+
+                    </VerticalStackLayout>
+
+                </Frame>
+
+                <Frame Style="{StaticResource InfoFrameStyle}">
+
+                    <Label Text="{x:Static localization:Language.Info}" FontSize="14" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+                </Frame>
+
+                <!--<Frame Padding="16,12,12,12">
+
+                    <VerticalStackLayout Spacing="16">
+
+                        <HorizontalStackLayout>
+
+                            <Label Text="{x:Static localization:Language.PrivacyPolicy}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+
+                                <Label.GestureRecognizers>
+
+                                    <TapGestureRecognizer Command="{Binding PrivacyPolicyCommand}" NumberOfTapsRequired="1"/>
+
+                                </Label.GestureRecognizers>
+
+                            </Label>
+
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+
+                </Frame>-->
+
+                <Label TextColor="White" Margin="10" FontSize="14" FontAttributes="Bold" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+
+                    <Label.FormattedText>
+
+                        <FormattedString>
+
+                            <!--<Span Text="Version: " FontAttributes="Bold"/>
+                        <Span Text="{Binding AppBuild}" FontAttributes="Bold"/>-->
+                            <Span Text="Version: " FontAttributes="Bold"/>
+                            <Span Text="{Binding AppVersion}" FontAttributes="Bold"/>
+
+                        </FormattedString>
+
+                    </Label.FormattedText>
+
+                </Label>
+
+            </StackLayout>
+
+        </ScrollView>
+
+    </ContentPage.Content>
+
+</ContentPage>

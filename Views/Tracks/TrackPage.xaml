@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localization="clr-namespace:Namada_Maui.Resources.Localization"
+             xmlns:model="clr-namespace:Namada_Maui.Models.Validators"
+             xmlns:viewModel="clr-namespace:Namada_Maui.ViewModels.Tracks"
+             x:Class="Namada_Maui.Views.Tracks.TrackPage"
+             Title="Track">
+    
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <StackLayout Spacing="12" Padding="12,16,12,6" Orientation="Horizontal">
+
+                <Border StrokeShape="RoundRectangle 10" Padding="10,2,12,2" Margin="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                    <StackLayout Orientation="Horizontal" Spacing="14">
+
+                        <Entry Text="{Binding Search}" Placeholder="Moniker   /   Validator" FontSize="18" HorizontalOptions="FillAndExpand" />
+
+                        <ImageButton Source="{DynamicResource Trash}" Command="{Binding TrashCommand}" IsVisible="{Binding IsVisibleTrash}" HorizontalOptions="End"/>
+
+                        <ImageButton Source="{DynamicResource Paste}" Command="{Binding PasteCommand}" HorizontalOptions="End"/>
+
+                        <ImageButton Source="{DynamicResource Search}" Command="{Binding SearchCommand}" HorizontalOptions="End"/>
+
+                    </StackLayout>
+
+                </Border>
+
+                <!--<ImageButton HorizontalOptions="End" VerticalOptions="FillAndExpand" Source="{DynamicResource Search}" Command="{Binding SearchCommand}"/>-->
+                
+                <!--<StackLayout HorizontalOptions="End" VerticalOptions="FillAndExpand">
+
+                    <ImageButton VerticalOptions="FillAndExpand" Source="{DynamicResource Search}" Command="{Binding PasteCommand}" HorizontalOptions="End"/>
+                    
+                    --><!--<Button VerticalOptions="FillAndExpand" ImageSource="{DynamicResource Search}" Command="{Binding SearchCommand}"/>--><!--
+
+                </StackLayout>-->
+
+            </StackLayout>
+
+            <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
+
+                <CollectionView ItemsSource="{Binding Validators}">
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate>
+
+                            <StackLayout>
+
+                                <Border Margin="12,4,12,4" Padding="10" >
+
+                                    <Border.GestureRecognizers>
+
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:TrackViewModel}}, Path=ItemTapped}" CommandParameter="{Binding .}"/>
+
+                                    </Border.GestureRecognizers>
+
+                                    <StackLayout Spacing="8" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                        <Frame WidthRequest="40" HeightRequest="40" CornerRadius="10" IsClippedToBounds="True" HorizontalOptions="Start">
+
+                                            <Image WidthRequest="40" HeightRequest="40" Aspect="AspectFit" Source="{Binding Icon, TargetNullValue=icon_user}"/>
+
+                                        </Frame>
+
+                                        <StackLayout Spacing="6" HorizontalOptions="FillAndExpand">
+
+                                            <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{x:Static localization:Language.Moniker}" FontAttributes="Bold"/>
+                                                            <Span Text=":" FontAttributes="Bold"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Label Text="{Binding Moniker, TargetNullValue={x:Static localization:Language.Empty}}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                            </StackLayout>
+
+                                            <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="Address" FontAttributes="Bold"/>
+                                                            <Span Text=":" FontAttributes="Bold"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Label Text="{Binding Address}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                                <!--<ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+
+                                    <StackLayout BindableLayout.ItemsSource="{Binding ValidatorSignatures}" Spacing="4" Orientation="Horizontal" Margin="18,2">
+
+                                        <BindableLayout.ItemTemplate>
+
+                                            <DataTemplate>
+
+                                                <Border  Style="{DynamicResource StatusBlockBorderStyle}">
+
+                                                    <Label Text="{Binding Height}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                                </Border>
+
+                                                --><!--<Frame Style="{StaticResource StepTargetFrameStyle}" Margin="0">
+
+                                                    <Grid >
+
+                                                        <Grid.ColumnDefinitions>
+
+                                                            <ColumnDefinition Width="auto"/>
+                                                            <ColumnDefinition Width="auto"/>
+
+                                                        </Grid.ColumnDefinitions>
+
+                                                        <Grid.RowDefinitions>
+
+                                                            <RowDefinition Height="auto"/>
+                                                            <RowDefinition Height="auto"/>
+
+                                                        </Grid.RowDefinitions>
+
+                                                        <Label Grid.Column="0" Grid.Row="0" Text="{Binding NameStep}" FontSize="14" FontAttributes="Bold" TextColor="Black" LineBreakMode="WordWrap" MaxLines="2">
+
+                                                        </Label>
+
+                                                        <Label Grid.Column="0" Grid.Row="1" Grid.RowSpan="1" Text="ке" FontSize="10" TextColor="Black" LineBreakMode="WordWrap" MaxLines="2">
+
+                                                        </Label>
+
+                                                        --><!--<StackLayout Grid.Column="1" Grid.Row="0" Spacing="4" Orientation="Horizontal" Padding="0" VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand">
+
+                            <Label Text="Шаг" FontSize="10" TextColor="White" FontAttributes="Bold" VerticalOptions="CenterAndExpand">
+
+                            </Label>
+
+                            <Label Text="1" FontSize="10" TextColor="White" FontAttributes="Bold" VerticalOptions="CenterAndExpand">
+
+                            </Label>
+
+                        </StackLayout>--><!--
+
+                                                    </Grid>
+
+                                                </Frame>-->
+
+                                                <!--<Frame>
+
+        <Label Text="{Binding NameStep}"/>
+
+    </Frame>--><!--
+
+                                            </DataTemplate>
+
+                                        </BindableLayout.ItemTemplate>
+
+                                    </StackLayout>
+
+                                </ScrollView>-->
+
+
+                                <!--<CollectionView  VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" Margin="12,0,12,0" ItemsSource="{Binding ValidatorSignatures}">
+
+                                    <CollectionView.EmptyView>
+
+                                        <ContentView>
+
+                                            <StackLayout Margin="10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" >
+
+                                                <ActivityIndicator IsRunning="true" />
+
+                                                <Label Text="loading" Margin="10,25,10,10" FontAttributes="Bold" FontSize="16" HorizontalTextAlignment="Center" />
+
+                                            </StackLayout>
+
+                                        </ContentView>
+
+                                    </CollectionView.EmptyView>
+
+                                    <CollectionView.ItemsLayout>
+
+                                        <GridItemsLayout Orientation="Horizontal"/>
+
+                                    </CollectionView.ItemsLayout>
+
+                                    <CollectionView.ItemTemplate>
+
+                                        <DataTemplate>
+
+                                            <Grid Padding="4" Margin="0">
+
+                                                <Border  Style="{DynamicResource StatusBlockBorderStyle}">
+
+                                                    <Label Text="{Binding Height}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                                </Border>
+
+                                            </Grid>
+
+                                        </DataTemplate>
+
+                                    </CollectionView.ItemTemplate>
+
+                                </CollectionView>-->
+
+                            </StackLayout>
+
+                        </DataTemplate>
+
+                    </CollectionView.ItemTemplate>
+
+                    <!--<CollectionView.FooterTemplate>
+
+                        <DataTemplate>
+
+                            <StackLayout>
+
+                                
+
+                            </StackLayout>
+
+                        </DataTemplate>
+
+                    </CollectionView.FooterTemplate>-->
+
+
+
+                    <!--<CollectionView.EmptyView>
+
+                    <ContentView>
+
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                            <Label Text="Failed to load JSON from the Internet." Margin="10,25,10,10" FontAttributes="Bold" FontSize="16"
+                       HorizontalOptions="Fill" HorizontalTextAlignment="Center" />
+
+                            <Label Text="https://namada-explorer-api.stakepool.dev.br/node/validators/list" FontAttributes="Italic" FontSize="10"
+                       HorizontalOptions="Fill" HorizontalTextAlignment="Center" />
+
+                        </StackLayout>
+
+                    </ContentView>
+
+                </CollectionView.EmptyView>-->
+
+                    <!--<CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <StackLayout Orientation="Horizontal" Spacing="4" >
+
+                            -->
+                    <!--<Label Text="{Binding Rating}" />-->
+                    <!--
+
+                            <StackLayout Margin="12,6,0,2" Spacing="4" HorizontalOptions="Start">
+
+                        
+
+                        <Border Margin="0" Padding="4" BackgroundColor="Green" HorizontalOptions="CenterAndExpand">
+
+                            <StackLayout Margin="0" Padding="0">
+
+                                <Label Margin="0" Padding="0" FontSize="9">100011</Label>
+
+                            </StackLayout>
+                            
+                            
+                            
+                        </Border>
+
+                                <Border Margin="0" Padding="4" BackgroundColor="Red" HorizontalOptions="CenterAndExpand">
+
+                                    <StackLayout Margin="0" Padding="0">
+
+                                        <Label Margin="0" Padding="0" FontSize="9">100011</Label>
+
+                                    </StackLayout>
+                            
+                                </Border>
+
+                                <Border Margin="0" Padding="4" BackgroundColor="Red" HorizontalOptions="CenterAndExpand">
+
+                                    <StackLayout Margin="0" Padding="0">
+
+                                        <Label Margin="0" Padding="0" FontSize="9">100011</Label>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                                <Border Margin="0" Padding="4" BackgroundColor="Red" HorizontalOptions="CenterAndExpand">
+
+                                    <StackLayout Margin="0" Padding="0">
+
+                                        <Label Margin="0" Padding="0" FontSize="9">100011</Label>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                    </StackLayout>
+
+
+
+                            <Border Margin="12,4,12,4" HorizontalOptions="FillAndExpand">
+
+                                <StackLayout Spacing="4">
+
+                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static localization:Language.Moniker}" FontAttributes="Bold"/>
+                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label Text="{Binding Moniker}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                    </StackLayout>
+
+                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static localization:Language.Validator}" FontAttributes="Bold"/>
+                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label Text="{Binding Address}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                    </StackLayout>
+
+                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static localization:Language.VotingPower}" FontAttributes="Bold"/>
+                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label Text="{Binding VotingPower}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                    </StackLayout>
+
+                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static localization:Language.VotingPercentage}" FontAttributes="Bold"/>
+                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label Text="{Binding VotingPercentage, StringFormat='{0:F2}%'}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal">
+
+                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static localization:Language.ProposerPriority}" FontAttributes="Bold"/>
+                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label Text="{Binding ProposerPriority}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Border>
+
+                            -->
+                    <!--<ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+
+                        <StackLayout BindableLayout.ItemsSource="{Binding ValidatorBlocks}" Spacing="4" Orientation="Horizontal" Margin="12,2">
+
+                            <BindableLayout.ItemTemplate>
+
+                                <DataTemplate>
+
+                                    <Border Margin="0">
+
+                                        <Grid >
+
+                                            <Grid.ColumnDefinitions>
+
+                                                <ColumnDefinition Width="auto"/>
+                                                <ColumnDefinition Width="auto"/>
+
+                                            </Grid.ColumnDefinitions>
+
+                                            <Grid.RowDefinitions>
+
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+
+                                            </Grid.RowDefinitions>
+
+                                            <Label Grid.Column="0" Grid.Row="0" Text="{Binding Height}" FontSize="14" FontAttributes="Bold" TextColor="Black" LineBreakMode="WordWrap" MaxLines="2">
+
+                                            </Label>
+
+                                            <Label Grid.Column="0" Grid.Row="1" Grid.RowSpan="1" Text="ке" FontSize="10" TextColor="Black" LineBreakMode="WordWrap" MaxLines="2">
+
+                                            </Label>
+                                        </Grid>
+
+                                    </Border>
+
+                                </DataTemplate>
+
+                            </BindableLayout.ItemTemplate>
+
+                        </StackLayout>
+
+                    </ScrollView>-->
+                    <!--
+
+                        </StackLayout>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>-->
+
+                    
+                    
+                    
+                </CollectionView>
+
+            </RefreshView>
+
+        </StackLayout>
+
+        
+
+
+
+
+        <!--<StackLayout Spacing="12" Padding="12,16,12,16">
+
+        <Border StrokeShape="RoundRectangle 10" Padding="10,2,12,2" Margin="0">
+
+            <StackLayout Orientation="Horizontal" Spacing="12">
+
+                <Entry Text="{Binding Search}" Placeholder="Validator  /  Moniker" FontSize="18" HorizontalOptions="FillAndExpand"/>
+
+                <ImageButton Source="{DynamicResource Trash}" Command="{Binding TrashCommand}" IsVisible="{Binding IsVisibleTrash}"/>
+
+                <ImageButton Source="{DynamicResource Paste}" Command="{Binding PasteCommand}"/>
+
+            </StackLayout>
+
+        </Border>
+
+        <StackLayout Orientation="Horizontal" Spacing="8">
+
+            <Button Text="Search" FontAttributes="Bold" ContentLayout="Right, 22" ImageSource="{DynamicResource Search}" HorizontalOptions="FillAndExpand"/>
+
+        </StackLayout>
+
+        
+        
+        <CollectionView ItemsSource="{Binding Validators}">
+
+            <CollectionView.EmptyView>
+
+                <ContentView>
+
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                        <Label Text="Failed to load JSON from the Internet." Margin="10,25,10,10" FontAttributes="Bold" FontSize="16"
+       HorizontalOptions="Fill" HorizontalTextAlignment="Center" />
+
+                        <Label Text="https://namada-explorer-api.stakepool.dev.br/node/validators/list" FontAttributes="Italic" FontSize="10"
+       HorizontalOptions="Fill" HorizontalTextAlignment="Center" />
+
+                    </StackLayout>
+
+                </ContentView>
+
+            </CollectionView.EmptyView>
+
+            <CollectionView.Header>
+
+                <StackLayout Padding="6"/>
+
+            </CollectionView.Header>
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+
+                    <StackLayout>
+
+                        <Border Margin="12,4,12,4">
+
+                            <StackLayout Spacing="4">
+
+                                <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                    <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{x:Static localization:Language.Moniker}" FontAttributes="Bold"/>
+                                                <Span Text=":" FontAttributes="Bold"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label Text="{Binding Moniker}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                </StackLayout>
+
+                                <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                    <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{x:Static localization:Language.Validator}" FontAttributes="Bold"/>
+                                                <Span Text=":" FontAttributes="Bold"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label Text="{Binding Address}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                </StackLayout>
+
+                                <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                    <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{x:Static localization:Language.VotingPower}" FontAttributes="Bold"/>
+                                                <Span Text=":" FontAttributes="Bold"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label Text="{Binding VotingPower}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                </StackLayout>
+
+                                <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                    <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{x:Static localization:Language.VotingPercentage}" FontAttributes="Bold"/>
+                                                <Span Text=":" FontAttributes="Bold"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label Text="{Binding VotingPercentage, StringFormat='{0:F2}%'}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+
+                                    <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{x:Static localization:Language.ProposerPriority}" FontAttributes="Bold"/>
+                                                <Span Text=":" FontAttributes="Bold"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label Text="{Binding ProposerPriority}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                </StackLayout>
+
+                            </StackLayout>
+
+                        </Border>
+
+                        -->
+        <!--<ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+
+        <StackLayout BindableLayout.ItemsSource="{Binding ValidatorBlocks}" Spacing="4" Orientation="Horizontal" Margin="12,2">
+
+            <BindableLayout.ItemTemplate>
+
+                <DataTemplate>
+
+                    <Border Margin="0">
+
+                        <Grid >
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Column="0" Grid.Row="0" Text="{Binding Height}" FontSize="14" FontAttributes="Bold" TextColor="Black" LineBreakMode="WordWrap" MaxLines="2">
+
+                            </Label>
+
+                            <Label Grid.Column="0" Grid.Row="1" Grid.RowSpan="1" Text="ке" FontSize="10" TextColor="Black" LineBreakMode="WordWrap" MaxLines="2">
+
+                            </Label>
+                        </Grid>
+
+                    </Border>
+
+                </DataTemplate>
+
+            </BindableLayout.ItemTemplate>
+
+        </StackLayout>
+
+    </ScrollView>-->
+        <!--
+
+                    </StackLayout>
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+    </StackLayout>-->
+
+    </ContentPage.Content>
+
+</ContentPage>

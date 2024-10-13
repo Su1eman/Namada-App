@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localization="clr-namespace:Namada_Maui.Resources.Localization"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="Namada_Maui.Views.Blocks.InfoBlocksPage"
+             Shell.TabBarIsVisible="False"
+             Title="Information">
+
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <ScrollView x:Name="scrollView" Padding="12,16,12,16" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                <StackLayout Spacing="12" >
+
+                    <toolkit:Expander IsExpanded="True">
+
+                        <toolkit:Expander.Header>
+
+                            <StackLayout Padding="8,0,8,0" Margin="0,0,0,10" Orientation="Horizontal">
+
+                                <Label Text="Block" Style="{StaticResource MediumHeadingExpanderLabelStyle}"/>
+
+                                <Image Source="{StaticResource AngleDown}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                    <Image.Triggers>
+                                        <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type toolkit:Expander}}, Path=IsExpanded}" Value="True">
+                                            <Setter Property="Source" Value="{StaticResource AngleUp}" />
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+
+                            </StackLayout>
+
+                        </toolkit:Expander.Header>
+
+                        <StackLayout Spacing="8">
+
+                            <Border>
+
+                                <StackLayout>
+
+                                    <StackLayout.GestureRecognizers>
+
+                                        <TapGestureRecognizer Command="{Binding CopyCommand}" CommandParameter="height" NumberOfTapsRequired="1"/>
+
+                                    </StackLayout.GestureRecognizers>
+
+                                    <Label Text="{x:Static localization:Language.BlockHeight}" Style="{StaticResource MediumHeadingLabelStyle}"/>
+
+                                    <StackLayout Spacing="8" Padding="2,10,2,10" Orientation="Horizontal">
+
+                                        <Image Source="{DynamicResource Copy}" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+                                        <Label Text="{Binding Block.Height}" Style="{StaticResource SmallLabelStyle}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Border>
+
+                            <Border>
+
+                                <StackLayout>
+
+                                    <StackLayout.GestureRecognizers>
+
+                                        <TapGestureRecognizer Command="{Binding CopyCommand}" CommandParameter="time" NumberOfTapsRequired="1"/>
+
+                                    </StackLayout.GestureRecognizers>
+
+                                    <Label Text="{x:Static localization:Language.Time}" Style="{StaticResource MediumHeadingLabelStyle}"/>
+
+                                    <StackLayout Spacing="8" Padding="2,10,2,10" Orientation="Horizontal">
+
+                                        <Image Source="{DynamicResource Copy}" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+                                        <Label Text="{Binding Block.Time}" Style="{StaticResource SmallLabelStyle}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Border>
+
+                            <Border>
+
+                                <StackLayout>
+
+                                    <StackLayout.GestureRecognizers>
+
+                                        <TapGestureRecognizer Command="{Binding CopyCommand}" CommandParameter="hash" NumberOfTapsRequired="1"/>
+
+                                    </StackLayout.GestureRecognizers>
+
+                                    <Label Text="{x:Static localization:Language.Hash}" Style="{StaticResource MediumHeadingLabelStyle}"/>
+
+                                    <StackLayout Spacing="8" Padding="2,10,2,10" Orientation="Horizontal">
+
+                                        <Image Source="{DynamicResource Copy}" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+                                        <Label Text="{Binding Block.Hash}" Style="{StaticResource SmallLabelStyle}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Border>
+
+                            <Border>
+
+                                <StackLayout>
+
+                                    <StackLayout.GestureRecognizers>
+
+                                        <TapGestureRecognizer Command="{Binding CopyCommand}" CommandParameter="proposer" NumberOfTapsRequired="1"/>
+
+                                    </StackLayout.GestureRecognizers>
+
+                                    <Label Text="{x:Static localization:Language.Proposer}" Style="{StaticResource MediumHeadingLabelStyle}"/>
+
+                                    <StackLayout Spacing="8" Padding="2,10,2,10" Orientation="Horizontal">
+
+                                        <Image Source="{DynamicResource Copy}" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+                                        <Label Text="{Binding Block.Proposer}" Style="{StaticResource SmallLabelStyle}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Border>
+
+                        </StackLayout>
+
+                    </toolkit:Expander>
+
+                    <toolkit:Expander IsExpanded="True">
+
+                        <toolkit:Expander.Header>
+
+                            <StackLayout Padding="8,0,8,0" Margin="0,0,0,10" Orientation="Horizontal">
+
+                                <Label Text="Signatures" Style="{StaticResource MediumHeadingExpanderLabelStyle}"/>
+
+                                <Image Source="{StaticResource AngleDown}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                    <Image.Triggers>
+                                        <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type toolkit:Expander}}, Path=IsExpanded}" Value="True">
+                                            <Setter Property="Source" Value="{StaticResource AngleUp}" />
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+
+                            </StackLayout>
+
+                        </toolkit:Expander.Header>
+
+                        <StackLayout BindableLayout.ItemsSource="{Binding Signatures}">
+
+                            <BindableLayout.EmptyViewTemplate>
+
+                                <DataTemplate>
+
+                                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                                        <ActivityIndicator IsRunning="true" />
+
+                                    </StackLayout>
+
+                                </DataTemplate>
+
+                            </BindableLayout.EmptyViewTemplate>
+
+                            <BindableLayout.ItemTemplate>
+
+                                <DataTemplate>
+
+                                    <StackLayout>
+
+                                        <Border Margin="0,4,0,4" Padding="10">
+
+                                            <StackLayout Spacing="8" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                                <Frame WidthRequest="40" HeightRequest="40" CornerRadius="10" IsClippedToBounds="True" HorizontalOptions="Start">
+
+                                                    <Image WidthRequest="40" HeightRequest="40" Aspect="AspectFit" Source="{Binding Icon, TargetNullValue=icon_user}"/>
+
+                                                </Frame>
+
+                                                <StackLayout Spacing="6" HorizontalOptions="FillAndExpand">
+
+                                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="{x:Static localization:Language.Moniker}" FontAttributes="Bold"/>
+                                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+
+                                                        <Label Text="{Binding Moniker, TargetNullValue={x:Static localization:Language.Empty}}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                                    </StackLayout>
+
+                                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="Address" FontAttributes="Bold"/>
+                                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+
+                                                        <Label Text="{Binding ValidatorAddress}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                                    </StackLayout>
+
+                                                </StackLayout>
+
+                                            </StackLayout>
+
+                                        </Border>
+
+                                    </StackLayout>
+
+                                </DataTemplate>
+
+                            </BindableLayout.ItemTemplate>
+
+                        </StackLayout>
+
+
+
+
+
+
+
+
+
+                        <!--<CollectionView ItemsSource="{Binding Signatures}">
+
+                            <CollectionView.EmptyView>
+
+                                <ContentView>
+
+                                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                                        -->
+                        <!--<Label Text="Failed to load JSON from the Internet." Margin="10,25,10,10" FontAttributes="Bold" FontSize="16"
+        HorizontalOptions="Fill" HorizontalTextAlignment="Center" />-->
+                        <!--
+
+                                        <ActivityIndicator IsRunning="true" />
+
+                                        -->
+                        <!--<Label Text="https://namada-explorer-api.stakepool.dev.br/node/validators/list" FontAttributes="Italic" FontSize="10"
+        HorizontalOptions="Fill" HorizontalTextAlignment="Center" />-->
+                        <!--
+
+                                    </StackLayout>
+
+                                </ContentView>
+
+                            </CollectionView.EmptyView>
+
+                            <CollectionView.ItemTemplate>
+
+                                <DataTemplate>
+
+                                    <StackLayout>
+
+                                        <Border Margin="0,4,0,4" Padding="10">
+
+                                            <StackLayout Spacing="8" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                                <Frame WidthRequest="40" HeightRequest="40" CornerRadius="10" IsClippedToBounds="True" HorizontalOptions="Start">
+
+                                                    <Image WidthRequest="40" HeightRequest="40" Aspect="AspectFit" Source="{Binding Icon, TargetNullValue=icon_user}"/>
+
+                                                </Frame>
+
+                                                <StackLayout Spacing="6" HorizontalOptions="FillAndExpand">
+
+                                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="{x:Static localization:Language.Moniker}" FontAttributes="Bold"/>
+                                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+
+                                                        <Label Text="{Binding Moniker, TargetNullValue={x:Static localization:Language.Empty}}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                                    </StackLayout>
+
+                                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="Address" FontAttributes="Bold"/>
+                                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+
+                                                        <Label Text="{Binding ValidatorAddress}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                                    </StackLayout>
+
+                                                </StackLayout>
+
+                                            </StackLayout>
+
+                                        </Border>
+
+                                    </StackLayout>
+
+                                </DataTemplate>
+
+                            </CollectionView.ItemTemplate>
+
+                        </CollectionView>-->
+
+                    </toolkit:Expander>
+                    
+                </StackLayout>
+
+            </ScrollView>
+
+        </StackLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--<StackLayout>
+
+            <CollectionView ItemsUpdatingScrollMode="KeepItemsInView" ItemsSource="{Binding Signatures}"  >
+
+                <CollectionView.EmptyView>
+
+                    <ContentView>
+
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                            <ActivityIndicator IsRunning="true" />
+
+                        </StackLayout>
+
+                    </ContentView>
+
+                </CollectionView.EmptyView>
+
+                <CollectionView.Header>
+
+                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                        <toolkit:Expander IsExpanded="True">
+
+                            <toolkit:Expander.Header>
+
+                                <StackLayout Padding="8,0,8,0" Margin="0,0,0,10" Orientation="Horizontal">
+
+                                    <Label Text="Block" Style="{StaticResource MediumHeadingExpanderLabelStyle}"/>
+
+                                    <Image Source="{StaticResource AngleDown}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Image.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type toolkit:Expander}}, Path=IsExpanded}" Value="True">
+                                                <Setter Property="Source" Value="{StaticResource AngleUp}" />
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+
+                                </StackLayout>
+
+                            </toolkit:Expander.Header>
+
+                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                                <Border>
+
+                                    <StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+
+                                            <TapGestureRecognizer Command="{Binding CopyCommand}" CommandParameter="height" NumberOfTapsRequired="1"/>
+
+                                        </StackLayout.GestureRecognizers>
+
+                                        <Label Text="{x:Static localization:Language.BlockHeight}" Style="{StaticResource MediumHeadingLabelStyle}"/>
+
+                                        <StackLayout Spacing="8" Padding="2,10,2,10" Orientation="Horizontal">
+
+                                            <Image Source="{DynamicResource Copy}" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+                                            <Label Text="{Binding Block.Height}" Style="{StaticResource SmallLabelStyle}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                                <Border>
+
+                                    <StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+
+                                            <TapGestureRecognizer Command="{Binding CopyCommand}" CommandParameter="time" NumberOfTapsRequired="1"/>
+
+                                        </StackLayout.GestureRecognizers>
+
+                                        <Label Text="{x:Static localization:Language.Time}" Style="{StaticResource MediumHeadingLabelStyle}"/>
+
+                                        <StackLayout Spacing="8" Padding="2,10,2,10" Orientation="Horizontal">
+
+                                            <Image Source="{DynamicResource Copy}" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+                                            <Label Text="{Binding Block.Time}" Style="{StaticResource SmallLabelStyle}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                                <Border>
+
+                                    <StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+
+                                            <TapGestureRecognizer Command="{Binding CopyCommand}" CommandParameter="hash" NumberOfTapsRequired="1"/>
+
+                                        </StackLayout.GestureRecognizers>
+
+                                        <Label Text="{x:Static localization:Language.Hash}" Style="{StaticResource MediumHeadingLabelStyle}"/>
+
+                                        <StackLayout Spacing="8" Padding="2,10,2,10" Orientation="Horizontal">
+
+                                            <Image Source="{DynamicResource Copy}" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+                                            <Label Text="{Binding Block.Hash}" Style="{StaticResource SmallLabelStyle}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                                <Border>
+
+                                    <StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+
+                                            <TapGestureRecognizer Command="{Binding CopyCommand}" CommandParameter="proposer" NumberOfTapsRequired="1"/>
+
+                                        </StackLayout.GestureRecognizers>
+
+                                        <Label Text="{x:Static localization:Language.Proposer}" Style="{StaticResource MediumHeadingLabelStyle}"/>
+
+                                        <StackLayout Spacing="8" Padding="2,10,2,10" Orientation="Horizontal">
+
+                                            <Image Source="{DynamicResource Copy}" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+                                            <Label Text="{Binding Block.Proposer}" Style="{StaticResource SmallLabelStyle}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                            </StackLayout>
+
+
+
+
+
+
+                        </toolkit:Expander>
+
+                        <toolkit:Expander IsExpanded="True">
+
+                            <toolkit:Expander.Header>
+
+                                <StackLayout Padding="8,0,8,0" Margin="0,0,0,10" Orientation="Horizontal">
+
+                                    <Label Text="Signatures" Style="{StaticResource MediumHeadingExpanderLabelStyle}"/>
+
+                                    <Image Source="{StaticResource AngleDown}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Image.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type toolkit:Expander}}, Path=IsExpanded}" Value="True">
+                                                <Setter Property="Source" Value="{StaticResource AngleUp}" />
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+
+                                </StackLayout>
+
+                            </toolkit:Expander.Header>
+
+                        </toolkit:Expander>
+
+                    </StackLayout>
+                    
+                    
+
+
+                </CollectionView.Header>
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <StackLayout>
+
+                            <Border Margin="0,4,0,4" Padding="10">
+
+                                <StackLayout Spacing="8" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                    <Frame WidthRequest="40" HeightRequest="40" CornerRadius="10" IsClippedToBounds="True" HorizontalOptions="Start">
+
+                                        <Image WidthRequest="40" HeightRequest="40" Aspect="AspectFit" Source="{Binding Icon, TargetNullValue=icon_user}"/>
+
+                                    </Frame>
+
+                                    <StackLayout Spacing="6" HorizontalOptions="FillAndExpand">
+
+                                        <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                            <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="{x:Static localization:Language.Moniker}" FontAttributes="Bold"/>
+                                                        <Span Text=":" FontAttributes="Bold"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+
+                                            <Label Text="{Binding Moniker, TargetNullValue={x:Static localization:Language.Empty}}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                        </StackLayout>
+
+                                        <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                            <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Address" FontAttributes="Bold"/>
+                                                        <Span Text=":" FontAttributes="Bold"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+
+                                            <Label Text="{Binding ValidatorAddress}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Border>
+
+                        </StackLayout>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </StackLayout>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+            <ScrollView x:Name="scrollView" Padding="12,16,12,16" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                <StackLayout Spacing="12" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                    
+
+                    <toolkit:Expander IsExpanded="True">
+
+                        <toolkit:Expander.Header>
+
+                            <StackLayout Padding="8,0,8,0" Margin="0,0,0,10" Orientation="Horizontal">
+
+                                <Label Text="Signatures" Style="{StaticResource MediumHeadingExpanderLabelStyle}"/>
+
+                                <Image Source="{StaticResource AngleDown}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                    <Image.Triggers>
+                                        <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type toolkit:Expander}}, Path=IsExpanded}" Value="True">
+                                            <Setter Property="Source" Value="{StaticResource AngleUp}" />
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+
+                            </StackLayout>
+
+                        </toolkit:Expander.Header>
+
+                        <CollectionView ItemsSource="{Binding Signatures}">
+
+                            <CollectionView.EmptyView>
+
+                                <ContentView>
+
+                                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                                        --><!--<Label Text="Failed to load JSON from the Internet." Margin="10,25,10,10" FontAttributes="Bold" FontSize="16"
+           HorizontalOptions="Fill" HorizontalTextAlignment="Center" />--><!--
+
+                                        <ActivityIndicator IsRunning="true" />
+
+                                        --><!--<Label Text="https://namada-explorer-api.stakepool.dev.br/node/validators/list" FontAttributes="Italic" FontSize="10"
+           HorizontalOptions="Fill" HorizontalTextAlignment="Center" />--><!--
+
+                                    </StackLayout>
+
+                                </ContentView>
+
+                            </CollectionView.EmptyView>
+
+                            <CollectionView.ItemTemplate>
+
+                                <DataTemplate>
+
+                                    <StackLayout>
+
+                                        <Border Margin="0,4,0,4" Padding="10">
+
+                                            <StackLayout Spacing="8" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                                <Frame WidthRequest="40" HeightRequest="40" CornerRadius="10" IsClippedToBounds="True" HorizontalOptions="Start">
+
+                                                    <Image WidthRequest="40" HeightRequest="40" Aspect="AspectFit" Source="{Binding Icon, TargetNullValue=icon_user}"/>
+
+                                                </Frame>
+
+                                                <StackLayout Spacing="6" HorizontalOptions="FillAndExpand">
+
+                                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="{x:Static localization:Language.Moniker}" FontAttributes="Bold"/>
+                                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+
+                                                        <Label Text="{Binding Moniker, TargetNullValue={x:Static localization:Language.Empty}}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                                    </StackLayout>
+
+                                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="Address" FontAttributes="Bold"/>
+                                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+
+                                                        <Label Text="{Binding ValidatorAddress}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                                    </StackLayout>
+
+                                                </StackLayout>
+
+                                            </StackLayout>
+
+                                        </Border>
+
+                                    </StackLayout>
+
+                                </DataTemplate>
+
+                            </CollectionView.ItemTemplate>
+
+                        </CollectionView>
+
+                    </toolkit:Expander>
+
+                </StackLayout>
+
+            </ScrollView>
+
+        </StackLayout>-->
+
+    </ContentPage.Content>
+
+
+
+
+
+    <!--<ContentPage.Content>
+
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+            <ScrollView x:Name="scrollView" Padding="12,16,12,16" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Grid.Row="0" Spacing="12">
+
+                        <toolkit:Expander IsExpanded="True">
+
+                            <toolkit:Expander.Header>
+
+                                <StackLayout Padding="8,0,8,0" Margin="0,0,0,10" Orientation="Horizontal">
+
+                                    <Label Text="Block" Style="{StaticResource MediumHeadingExpanderLabelStyle}"/>
+
+                                    <Image Source="{StaticResource AngleDown}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Image.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type toolkit:Expander}}, Path=IsExpanded}" Value="True">
+                                                <Setter Property="Source" Value="{StaticResource AngleUp}" />
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+
+                                </StackLayout>
+
+                            </toolkit:Expander.Header>
+
+                            <StackLayout Spacing="8">
+
+                                <Border>
+
+                                    <StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+
+                                            <TapGestureRecognizer Command="{Binding CopyCommand}" CommandParameter="height" NumberOfTapsRequired="1"/>
+
+                                        </StackLayout.GestureRecognizers>
+
+                                        <Label Text="{x:Static localization:Language.BlockHeight}" Style="{StaticResource MediumHeadingLabelStyle}"/>
+
+                                        <StackLayout Spacing="8" Padding="2,10,2,10" Orientation="Horizontal">
+
+                                            <Image Source="{DynamicResource Copy}" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+                                            <Label Text="{Binding Block.Height}" Style="{StaticResource SmallLabelStyle}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                                <Border>
+
+                                    <StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+
+                                            <TapGestureRecognizer Command="{Binding CopyCommand}" CommandParameter="time" NumberOfTapsRequired="1"/>
+
+                                        </StackLayout.GestureRecognizers>
+
+                                        <Label Text="{x:Static localization:Language.Time}" Style="{StaticResource MediumHeadingLabelStyle}"/>
+
+                                        <StackLayout Spacing="8" Padding="2,10,2,10" Orientation="Horizontal">
+
+                                            <Image Source="{DynamicResource Copy}" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+                                            <Label Text="{Binding Block.Time}" Style="{StaticResource SmallLabelStyle}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                                <Border>
+
+                                    <StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+
+                                            <TapGestureRecognizer Command="{Binding CopyCommand}" CommandParameter="hash" NumberOfTapsRequired="1"/>
+
+                                        </StackLayout.GestureRecognizers>
+
+                                        <Label Text="{x:Static localization:Language.Hash}" Style="{StaticResource MediumHeadingLabelStyle}"/>
+
+                                        <StackLayout Spacing="8" Padding="2,10,2,10" Orientation="Horizontal">
+
+                                            <Image Source="{DynamicResource Copy}" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+                                            <Label Text="{Binding Block.Hash}" Style="{StaticResource SmallLabelStyle}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                                <Border>
+
+                                    <StackLayout>
+
+                                        <StackLayout.GestureRecognizers>
+
+                                            <TapGestureRecognizer Command="{Binding CopyCommand}" CommandParameter="proposer" NumberOfTapsRequired="1"/>
+
+                                        </StackLayout.GestureRecognizers>
+
+                                        <Label Text="{x:Static localization:Language.Proposer}" Style="{StaticResource MediumHeadingLabelStyle}"/>
+
+                                        <StackLayout Spacing="8" Padding="2,10,2,10" Orientation="Horizontal">
+
+                                            <Image Source="{DynamicResource Copy}" VerticalOptions="Center" HorizontalOptions="Start"/>
+
+                                            <Label Text="{Binding Block.Proposer}" Style="{StaticResource SmallLabelStyle}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                                -->
+
+</ContentPage>

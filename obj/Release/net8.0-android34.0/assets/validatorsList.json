@@ -1,0 +1,326 @@
+{
+  "validatorsList": [
+    {
+      "address": "7A27465351C2EAFD51B8853D38DE51D9FB6B3970",
+      "moniker": "PRO-NODES75",
+      "icon": "https://raw.githubusercontent.com/the-node75/about-us/main/resources/logo_128x128.png",
+      "mail": "n75pro@protonmail.com",
+      "website": "https://node75.org"
+    },
+    {
+      "address": "E083155AEBD6C3A2FF175F750D65691FA47EB912",
+      "moniker": "STAKEUP",
+      "icon": "https://stakeup.tech/assets/images/logo.png",
+      "mail": "info@stakeup.tech",
+      "website": "https://stakeup.tech"
+    },
+    {
+      "address": "11BEA6434F204C2F7BE6CB7CF845C44C0FD3FBD2",
+      "moniker": "DENODES",
+      "icon": "https://api.denodes.xyz/logo.png",
+      "mail": "denodes.core@gmail.com",
+      "website": "https://denodes.xyz/"
+    },
+    {
+      "address": "EBFD9287C1D8DEAD3C177CB5AD6EF2FBE7DD14D8",
+      "moniker": "COMMONS-HUB",
+      "icon": "",
+      "mail": "e.fritsch@commons-hub.at",
+      "website": ""
+    },
+    {
+      "address": "9256ADF51D05281D787C3D4A52840A27135B8ABB",
+      "moniker": "STAKER-SPACE",
+      "icon": "https://staker.space/images/staker-space-logo.png",
+      "mail": "hello@staker.space",
+      "website": "https://staker.space"
+    },
+    {
+      "address": "F2ADC4D51000C0AE6A48248B70683B27B27E7020",
+      "moniker": "CRYPTOSJNET",
+      "icon": "https://cryptosj.net/images/SJlogo300.png",
+      "mail": "m@cryptosj.net",
+      "website": "https://cryptosj.net"
+    },
+    {
+      "address": "5D201FBAB54BE105C4784C4D752A552771CD1238",
+      "moniker": "BWARELABS",
+      "icon": "",
+      "mail": "validators@bwarelabs.com",
+      "website": "https://bwarelabs.com"
+    },
+    {
+      "address": "270D091AE90B927E840F5A48CA9B828C82EEBBB9",
+      "moniker": "CROUTONDIGITAL",
+      "icon": "https://raw.githubusercontent.com/Crouton-Digital/guide/main/testnets/namada/crouton128.png",
+      "mail": "croutondigital@aol.com",
+      "website": "https://stake.crouton.digital"
+    },
+    {
+      "address": "98FBA17933CDBED11FA4DE41B3CA08A7C5E29EF1",
+      "moniker": "STAKIN",
+      "icon": "https://stakin-data.s3.eu-west-2.amazonaws.com/stakin128.png",
+      "mail": "security@stakin.com",
+      "website": "https://stakin.com"
+    },
+    {
+      "address": "4364CFE57453CCC8466EF2C74823D85065FBF279",
+      "moniker": "BRIGHTLYSTAKE",
+      "icon": "",
+      "mail": "contact@brightlystake.com",
+      "website": ""
+    },
+    {
+      "address": "197E6BD5675B8B063DCEAA559A5DDFFEB5E500C3",
+      "moniker": "KNOWABLE",
+      "icon": "https://avatars.githubusercontent.com/u/99352068",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "1586E894E66E6F7ED162DFA94318A7DAB23FBD2F",
+      "moniker": "CRYPTO_UNIVERSE",
+      "icon": "https://raw.githubusercontent.com/Crypto-Druide/Crypto_Universe/main/crypto_universe-ok.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "A21CC5CC4C83590F54753D7A859DDBE4D2BDBE5E",
+      "moniker": "L0VD",
+      "icon": "https://raw.githubusercontent.com/L0vd/image-content/60f29421facb41799b3113939c91712d46509333/L0vd_logo.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "F71DC91AFAD44CF81CA11C87D7762AB1450BB3F3",
+      "moniker": "COSMICVALIDATOR",
+      "icon": "https://raw.githubusercontent.com/CosmicValidator/profile/main/cosmic-validator.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "191462D41150C6350F62C3882EC3C15EFBF816D2",
+      "moniker": "FORBOLE",
+      "icon": "https://forbole-val.s3.ap-east-1.amazonaws.com/profile/forbole-logo-128x128.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "10058A2944A34BD8CCAAFDD2F98AE0A3FB0CF382",
+      "moniker": "B-HARVEST",
+      "icon": "https://seoul-fileserver.s3.ap-northeast-2.amazonaws.com/bharvest-logo-x512.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "0E1CFCF387B1CDBCD642323F3B94E67D6B2F931A",
+      "moniker": "FELES-GATADAO",
+      "icon": "",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "35351448982F24250484F18C35E982AC5EACD145",
+      "moniker": "INFRADAO",
+      "icon": "",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "5C7A4F0E0464B07F26DAD583D815AA92C57B080B",
+      "moniker": "EMBERSTAKE",
+      "icon": "https://emberstake.xyz/logo.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "52894D2ABA1614EF24CC1DDAE127A7A2386DE3BB",
+      "moniker": "STAKEFLOW",
+      "icon": "https://validator.stakeflow.io/img/validator-logo.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "0BD5C32BDA0DDA6E4EDF8B210F8A9B3BFA946299",
+      "moniker": "KINGSUPER",
+      "icon": "https://i.ibb.co/3TM7cVZ/King-Super-128px.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "DCF55C0FC98CD4DBC08AE906883EA33ADAA35F11",
+      "moniker": "NODESGURU",
+      "icon": "https://s3.amazonaws.com/keybase_processed_uploads/25738b36b7972b94112bc8dc0df13b05_360_360.jpg",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "12553DD365FCD9E919C9143C6FCDF3C5AECFD7BF",
+      "moniker": "ENIGMA",
+      "icon": "",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "61F0BEB16A4B4EFB93300C6E7CC061791F4939C9",
+      "moniker": "MANDRAGORA",
+      "icon": "https://i.ibb.co/mzWB7tq/photo-2022-10-14-05-18-24.jpg",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "3F2D9EC60C67480619DF90B08F013480EBCBE219",
+      "moniker": "COSMOSTATION",
+      "icon": "https://raw.githubusercontent.com/cosmostation/chainlist/main/resource/cosmostation/cosmostation_black_bg(128x128).png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "E19BA58E6D3F8BBCC20A510611464F34C3D3AE4C",
+      "moniker": "KEPLR",
+      "icon": "",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "4777F1971572B5A22EE8FBD64777383E0647AC4D",
+      "moniker": "ZKVALIDATOR",
+      "icon": "https://zkvalidator.com/wp-content/uploads/2023/10/logo-ZKV-gradient.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "ECCB99DE2BB6889DE0F6F57F4A1FB6F1656A4B8A",
+      "moniker": "KJNODES",
+      "icon": "https://s3.amazonaws.com/keybase_processed_uploads/d6f1e63ac25d855dad5d1d5915988205_360_360.jpg",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "1752596117BC8CDD6E18E9284FFE629D0C69B7B7",
+      "moniker": "SWISS-STAKING",
+      "icon": "",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "44092E5AEA6F6583644071066B42396C44749C48",
+      "moniker": "VALIDATRIUM",
+      "icon": "https://raw.githubusercontent.com/Validatrium/validatrium/main/validatrium.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "5FA412EA2A32FB2BC7F86366366687B9C0B5066D",
+      "moniker": "DSRVLABS",
+      "icon": "https://s3.amazonaws.com/keybase_processed_uploads/8349f3ab6852a8419c1987ad9096c605_360_360.jpg",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "CC0722E3A981B96DFA12A28C0B6033CC0B1DE46A",
+      "moniker": "STAKEPOOL",
+      "icon": "",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "93DC731C3F3B1B6561501FD8F0ECC10106E93C53",
+      "moniker": "GOTO5K",
+      "icon": "https://raw.githubusercontent.com/goto5k/avatar/main/logo.jpg",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "88B9083A3B261A113B49B3528FD6EC1C5E8C9145",
+      "moniker": "STAKING4ALL",
+      "icon": "https://pbs.twimg.com/profile_images/1239938085829382146/ctUHCDaN_400x400.jpg",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "D4625C77BD7B4DF522FC9635BCFEDE4C7498F92B",
+      "moniker": "NODEIFY",
+      "icon": "",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "7100A0A64301091CA5D01F39C3B88484325D9034",
+      "moniker": "BLOCKHUNTERS",
+      "icon": "https://blockhunters.org/img/avatar.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "95516F3FF3CBF906968A1079FD32D7F6362B47D9",
+      "moniker": "BLACKBLOCKS",
+      "icon": "",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "33A0BF13D95CF39E2B3A8AE1A7D7BE4DBADDF9F5",
+      "moniker": "U410",
+      "icon": "https://s4-recruiting.cdn.greenhouse.io/external_greenhouse_job_boards/logos/400/119/000/resized/square.jpg",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "C8FAE4E62F85B9AF6ED28717B0AC53CF4E052771",
+      "moniker": "NODERSTEAM",
+      "icon": "https://raw.githubusercontent.com/nodersteam/picture/main/noders_logo.jpg",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "640A18C5B678E929229B68702BBEA5E423A5B75A",
+      "moniker": "KINTSUGI",
+      "icon": "https://raw.githubusercontent.com/kintsugi-tech/assets/3d2bbe2795e96f61053a02769f2aa07ed29b1320/logo/kintsugi-logo-128x128.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "FE0E7FC207CFAC4116C08C02DD5DDD230FABC6EE",
+      "moniker": "NODIUMS",
+      "icon": "https://nodiums.com/wp-content/uploads/2024/01/logo-11-1-e1705330590370.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "6759E306B23395D02B561696E80BA1FA9190C577",
+      "moniker": "NODEGUARDIANS",
+      "icon": "https://cdn.nodeguardians.io/ng-logo-bw.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "1FE9464B1EB36CEB36EEA064D760C53FCFEBB05A",
+      "moniker": "ARCHITECTNODES",
+      "icon": "",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "F21EA430763CF7658BEA63B2CF5A5CFC9F317239",
+      "moniker": "ENCIPHER",
+      "icon": "https://raw.githubusercontent.com/encipher88/namada/main/avatar.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "55F3B3D0CDCB6757578134633AB3C8D8F8D30EF9",
+      "moniker": "PATHROCKNETWORK",
+      "icon": "https://pathrocknetwork.org/images/logo/prn.png",
+      "mail": "",
+      "website": ""
+    },
+    {
+      "address": "",
+      "moniker": "",
+      "icon": "",
+      "mail": "",
+      "website": ""
+    }
+  ]
+}

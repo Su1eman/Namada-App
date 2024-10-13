@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Namada_Maui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:localization="clr-namespace:Namada_Maui.Resources.Localization"
+    xmlns:local="clr-namespace:Namada_Maui.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Namada_Maui">
+
+    <FlyoutItem Title="Namada" Route="Main" >
+
+        <ShellContent Title="{x:Static localization:Language.Overview}" Icon="icon_overview" ContentTemplate="{DataTemplate local:Overviews.OverviewPage}" Route="OverviewPage" />
+        <ShellContent Title="Track" Icon="icon_track" ContentTemplate="{DataTemplate local:Tracks.TrackPage}" Route="TrackPage" />
+        <ShellContent Title="{x:Static localization:Language.Validators}" Icon="icon_validators" ContentTemplate="{DataTemplate local:Validators.ValidatorsPage}" Route="ValidatorsPage" />
+        <ShellContent Title="{x:Static localization:Language.Blocks}" Icon="icon_blocks" ContentTemplate="{DataTemplate local:Blocks.BlocksPage}" Route="BlocksPage" />
+        <ShellContent Title="{x:Static localization:Language.Settings}" Icon="icon_settings" ContentTemplate="{DataTemplate local:Settings.SettingPage}" Route="SettingPage" />
+
+    </FlyoutItem>
+
+    <!--<ShellContent Title="{x:Static localization:Language.Settings}" Icon="icon_settings" ContentTemplate="{DataTemplate local:Settings.SettingPage}" Route="SettingPage" />-->
+    
+    <!--<FlyoutItem Title="Информация" Route="Info">
+
+    <ShellContent Title="{x:Static localization:Language.Overview}" Icon="icon_overview" ContentTemplate="{DataTemplate local:Overviews.OverviewPage}" Route="OverviewPage" />
+    <ShellContent Title="{x:Static localization:Language.Validators}" Icon="icon_validators" ContentTemplate="{DataTemplate local:Validators.ValidatorsPage}" Route="ValidatorsPage" />
+    <ShellContent Title="{x:Static localization:Language.Blocks}" Icon="icon_blocks" ContentTemplate="{DataTemplate local:Blocks.BlocksPage}" Route="BlocksPage" />
+
+</FlyoutItem>-->
+
+    <!--<ShellContent>
+
+    <Label Text="Rew d" TextColor="White" Margin="10" FontSize="14" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+        -->
+    <!--<Label.FormattedText>
+
+    <FormattedString>
+
+        -->
+    <!--<Span Text="Version: " FontAttributes="Bold"/>
+<Span Text="{Binding AppBuild}" FontAttributes="Bold"/>-->
+    <!--
+        <Span Text="Version: " FontAttributes="Bold"/>
+        <Span Text="{Binding AppVersion}" FontAttributes="Bold"/>
+
+    </FormattedString>
+
+</Label.FormattedText>-->
+    <!--
+
+    </Label>
+
+</ShellContent>-->
+
+</Shell>

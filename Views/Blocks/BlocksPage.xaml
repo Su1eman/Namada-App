@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localization="clr-namespace:Namada_Maui.Resources.Localization"
+             xmlns:model="clr-namespace:Namada_Maui.Models.Blocks"
+             xmlns:viewModel="clr-namespace:Namada_Maui.ViewModels.Blocks"
+             x:Class="Namada_Maui.Views.Blocks.BlocksPage"
+             Title="{x:Static localization:Language.Blocks}">
+    
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
+
+                <CollectionView ItemsSource="{Binding Blocks}"
+                                RemainingItemsThreshold="5"
+                                RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}">
+
+                    <CollectionView.EmptyView>
+
+                        <ContentView>
+
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                                <!--<Label Text="Failed to load JSON from the Internet." Margin="10,25,10,10" FontAttributes="Bold" FontSize="16"
+                        HorizontalOptions="Fill" HorizontalTextAlignment="Center" />-->
+
+                                <ActivityIndicator IsRunning="true" />
+                                
+                                <!--<Label Text=" https://namadexer.palamar.io/block/height/{latestBlock}" FontAttributes="Italic" FontSize="10"
+                        HorizontalOptions="Fill" HorizontalTextAlignment="Center" />-->
+
+                            </StackLayout>
+
+                        </ContentView>
+
+                    </CollectionView.EmptyView>
+
+                    <CollectionView.Header>
+
+                        <StackLayout Padding="6"/>
+
+                    </CollectionView.Header>
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate>
+
+                            <StackLayout>
+
+                                <Border Margin="8,4,8,4" Padding="10">
+
+                                    <Border.GestureRecognizers>
+
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:BlocksViewModel}}, Path=ItemTapped}" CommandParameter="{Binding .}"/>
+
+                                    </Border.GestureRecognizers>
+
+                                    <StackLayout Spacing="10" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                        <Frame Style="{StaticResource BlockFrameStyle}">
+
+                                            <Label Text="{Binding Height}" HorizontalOptions="Center" LineBreakMode="NoWrap" FontSize="14" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                        </Frame>
+
+                                        <StackLayout Spacing="6" HorizontalOptions="FillAndExpand">
+
+                                            <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{x:Static localization:Language.Proposer}" FontAttributes="Bold"/>
+                                                            <Span Text=":" FontAttributes="Bold"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Label Text="{Binding Proposer}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                            </StackLayout>
+
+                                            <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{x:Static localization:Language.Time}" FontAttributes="Bold"/>
+                                                            <Span Text=":" FontAttributes="Bold"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Label Text="{Binding Time}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                            </StackLayout>
+
+                        </DataTemplate>
+
+                        <!--<DataTemplate>
+
+                        <StackLayout>
+
+                            <Border Margin="12,4,12,4">
+
+                                <Border.GestureRecognizers>
+
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:BlocksViewModel}}, Path=ItemTapped}" CommandParameter="{Binding .}"/>
+
+                                </Border.GestureRecognizers>
+
+                                <StackLayout Spacing="4">
+
+                                    -->
+                        <!--<StackLayout Spacing="8" Orientation="Horizontal">
+
+                            <Label Text="ID:" TextColor="CadetBlue" LineBreakMode="MiddleTruncation" MaxLines="1"/>
+
+                            <Label Text="{Binding Id}" LineBreakMode="WordWrap" MaxLines="1" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+
+                        </StackLayout>-->
+                        <!--
+
+                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static localization:Language.BlockHeight}" FontAttributes="Bold"/>
+                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label Text="{Binding Height}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                    </StackLayout>
+
+                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static localization:Language.Hash}" FontAttributes="Bold"/>
+                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label Text="{Binding Hash}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                    </StackLayout>
+
+                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static localization:Language.Proposer}" FontAttributes="Bold"/>
+                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label Text="{Binding Proposer}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                    </StackLayout>
+
+                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static localization:Language.Time}" FontAttributes="Bold"/>
+                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label Text="{Binding Time,StringFormat='{0:dd.MM.yyyy %H:mm:ss}'}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Border>
+
+                        </StackLayout>
+
+                    </DataTemplate>-->
+
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </RefreshView>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>

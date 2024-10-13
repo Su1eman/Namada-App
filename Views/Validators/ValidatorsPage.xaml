@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:localization="clr-namespace:Namada_Maui.Resources.Localization"
+             xmlns:model="clr-namespace:Namada_Maui.Models.Validators"
+             xmlns:viewModel="clr-namespace:Namada_Maui.ViewModels.Validators"
+             x:Class="Namada_Maui.Views.Validators.ValidatorsPage"
+             Title="{x:Static localization:Language.Validators}">
+
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
+
+                <CollectionView ItemsSource="{Binding Validators}" 
+                                RemainingItemsThreshold="5"
+                                RemainingItemsThresholdReachedCommand="{Binding LoadMoreCommand}">
+
+                    <CollectionView.EmptyView>
+
+                        <ContentView>
+
+                            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+                                <!--<Label Text="Failed to load JSON from the Internet." Margin="10,25,10,10" FontAttributes="Bold" FontSize="16"
+                               HorizontalOptions="Fill" HorizontalTextAlignment="Center" />-->
+
+                                <ActivityIndicator IsRunning="true" />
+                                
+                                <!--<Label Text="https://namada-explorer-api.stakepool.dev.br/node/validators/list" FontAttributes="Italic" FontSize="10"
+                               HorizontalOptions="Fill" HorizontalTextAlignment="Center" />-->
+
+                            </StackLayout>
+
+                        </ContentView>
+
+                    </CollectionView.EmptyView>
+
+                    <CollectionView.Header>
+
+                        <StackLayout Padding="6"/>
+
+                    </CollectionView.Header>
+
+                    <CollectionView.ItemTemplate>
+
+                        <DataTemplate>
+
+                            <StackLayout>
+
+                                <Border Margin="8,4,8,4" Padding="10">
+
+                                    <Border.GestureRecognizers>
+
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:ValidatorsViewModel}}, Path=ItemTapped}" CommandParameter="{Binding .}"/>
+
+                                    </Border.GestureRecognizers>
+
+                                    <StackLayout Spacing="8" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                        <Frame WidthRequest="40" HeightRequest="40" CornerRadius="10" IsClippedToBounds="True" HorizontalOptions="Start">
+
+                                            <Image WidthRequest="40" HeightRequest="40" Aspect="AspectFit" Source="{Binding Icon, TargetNullValue=icon_user}"/>
+
+                                        </Frame>
+
+                                        <StackLayout Spacing="6" HorizontalOptions="FillAndExpand">
+
+                                            <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{x:Static localization:Language.Moniker}" FontAttributes="Bold"/>
+                                                            <Span Text=":" FontAttributes="Bold"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Label Text="{Binding Moniker, TargetNullValue={x:Static localization:Language.Empty}}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                            </StackLayout>
+
+                                            <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="Address" FontAttributes="Bold"/>
+                                                            <Span Text=":" FontAttributes="Bold"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Label Text="{Binding Address}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                            </StackLayout>
+
+                        </DataTemplate>
+
+                        <!--<DataTemplate>
+
+                        <StackLayout>
+
+                            -->
+                        <!--<Label Text="{Binding Rating}" />-->
+
+                        <!--<StackLayout Margin="12,2,2,2" Spacing="2" HorizontalOptions="Start">
+
+                                
+
+                                <Border Margin="0" Padding="4" BackgroundColor="Green" HorizontalOptions="CenterAndExpand">
+
+                                    <StackLayout Margin="0" Padding="0">
+
+                                        <Label Margin="0" Padding="0" FontSize="9">10001111</Label>
+
+                                    </StackLayout>
+                                    
+                                    
+                                    
+                                </Border>
+
+                                <Border WidthRequest="25" HeightRequest="10" BackgroundColor="Red" HorizontalOptions="CenterAndExpand">
+
+                                    <Label>1000</Label>
+
+                                </Border>
+
+                                <Border WidthRequest="25" HeightRequest="10" BackgroundColor="Red" HorizontalOptions="CenterAndExpand">
+
+                                    <Label>1000</Label>
+
+                                </Border>
+
+                                <Border WidthRequest="25" HeightRequest="10" BackgroundColor="Red" HorizontalOptions="CenterAndExpand">
+
+                                    <Label>1000</Label>
+
+                                </Border>
+
+                            </StackLayout>-->
+                        <!--
+
+                            <Border Margin="12,4,12,4">
+
+                                <Border.GestureRecognizers>
+
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:ValidatorsViewModel}}, Path=ItemTapped}" CommandParameter="{Binding .}"/>
+
+                                </Border.GestureRecognizers>
+
+                                <StackLayout Spacing="4">
+
+                                    -->
+                        <!--<StackLayout Spacing="8" Orientation="Horizontal">
+
+                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static localization:Language.Moniker}" FontAttributes="Bold"/>
+                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label Text="{Binding Moniker}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                    </StackLayout>-->
+                        <!--
+
+                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static localization:Language.Validator}" FontAttributes="Bold"/>
+                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label Text="{Binding Address}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                    </StackLayout>
+
+                                    <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static localization:Language.VotingPower}" FontAttributes="Bold"/>
+                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label Text="{Binding VotingPower}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                    </StackLayout>
+
+                                    -->
+                        <!--<StackLayout Spacing="8" Orientation="Horizontal">
+
+                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static localization:Language.VotingPercentage}" FontAttributes="Bold"/>
+                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label Text="{Binding VotingPercentage, StringFormat='{0:F2}%'}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                    </StackLayout>-->
+                        <!--
+
+                                    <StackLayout Orientation="Horizontal">
+
+                                        <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{x:Static localization:Language.ProposerPriority}" FontAttributes="Bold"/>
+                                                    <Span Text=":" FontAttributes="Bold"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label Text="{Binding ProposerPriority}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                    </StackLayout>
+
+                                </StackLayout>
+
+                            </Border>
+                            
+                        </StackLayout>
+
+                    </DataTemplate>-->
+
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </RefreshView>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>

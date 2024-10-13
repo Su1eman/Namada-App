@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ApplicationProperties</key>
+	<dict>
+		<key>ApplicationPath</key>
+		<string>Applications/Namada Maui.app</string>
+		<key>CFBundleIdentifier</key>
+		<string>com.voerd.namada</string>
+		<key>CFBundleShortVersionString</key>
+		<string>0.1.0</string>
+		<key>CFBundleVersion</key>
+		<string>10</string>
+		<key>IconPaths</key>
+		<array>
+			<string>Applications/Namada Maui.app/appicon60x60@2x.png</string>
+		</array>
+		<key>SigningIdentity</key>
+		<string>A512C6F007AECFEF2F1376CABA210135E3F3AD09</string>
+	</dict>
+	<key>ArchiveVersion</key>
+	<integer>2</integer>
+	<key>CreationDate</key>
+	<date>2024-04-21T12:32:30Z</date>
+	<key>Name</key>
+	<string>Namada Maui</string>
+	<key>SolutionName</key>
+	<string>Namada Maui</string>
+	<key>SolutionPath</key>
+	<string>C:/Users/Vitaliy/source/repos/Namada Maui/Namada Maui.sln</string>
+</dict>
+</plist>

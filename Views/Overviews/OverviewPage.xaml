@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:localization="clr-namespace:Namada_Maui.Resources.Localization"
+             xmlns:viewModel="clr-namespace:Namada_Maui.ViewModels.Overviews"
+             x:Class="Namada_Maui.Views.Overviews.OverviewPage"
+             Title="{x:Static localization:Language.Overview}">
+
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
+
+                <ScrollView x:Name="scrollView" Padding="12,16,12,16">
+
+                    <StackLayout Spacing="12">
+
+                        <toolkit:Expander IsExpanded="True">
+
+                            <toolkit:Expander.Header>
+
+                                <StackLayout Padding="8,0,8,0" Margin="0,0,0,10" Orientation="Horizontal">
+
+                                    <Label Text="Widgets" Style="{StaticResource MediumHeadingExpanderLabelStyle}"/>
+
+                                    <Image Source="{StaticResource AngleDown}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Image.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type toolkit:Expander}}, Path=IsExpanded}" Value="True">
+                                                <Setter Property="Source" Value="{StaticResource AngleUp}" />
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+
+                                </StackLayout>
+
+                            </toolkit:Expander.Header>
+
+                            <StackLayout Spacing="8">
+
+                                <!--<Color x:Key="QuaternaryColor">#DCDCE0</Color>
+                                <Color x:Key="FridayColor">#E1E0E5</Color>-->
+
+
+                                <!--<Border HeightRequest="200" WidthRequest="200" BackgroundColor="#DCDCE0">
+
+                                </Border>
+
+                                <Border HeightRequest="200" WidthRequest="200" BackgroundColor="#E1E0E5">
+
+                                </Border>-->
+
+                                <Border>
+
+                                    <StackLayout>
+
+                                        <StackLayout Orientation="Vertical" Spacing="4">
+
+                                            <Label Text="{x:Static localization:Language.Chain}" Style="{StaticResource LargeHeadingLabelStyle}"/>
+
+                                            <Label Text="{Binding Overview.Chain}" Style="{StaticResource MediumLabelStyle}"/>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                                <Border>
+
+                                    <StackLayout>
+
+                                        <StackLayout Orientation="Vertical" Spacing="4">
+
+                                            <Label Text="{x:Static localization:Language.LatestBlock}" Style="{StaticResource LargeHeadingLabelStyle}"/>
+
+                                            <Label Text="{Binding Overview.LatestBlock, StringFormat='{0:# ##0}'}" Style="{StaticResource MediumLabelStyle}"/>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                                <Border>
+
+                                    <StackLayout>
+
+                                        <StackLayout Orientation="Vertical" Spacing="4">
+
+                                            <Label Text="{x:Static localization:Language.BlockTime}" Style="{StaticResource LargeHeadingLabelStyle}"/>
+
+                                            <Label Text="{Binding Overview.BlockTimeShow}" Style="{StaticResource MediumLabelStyle}"/>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                                <Border>
+
+                                    <StackLayout>
+
+                                        <StackLayout Orientation="Vertical" Spacing="4">
+
+                                            <Label Text="{x:Static localization:Language.ProposerAddress}" Style="{StaticResource LargeHeadingLabelStyle}"/>
+
+                                            <Label Text="{Binding Overview.ProposerAddress}" Style="{StaticResource MicroLabelStyle}"/>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                </Border>
+
+                                <Image Source="{DynamicResource AngleDoubleDown}"/>
+
+                            </StackLayout>
+
+                        </toolkit:Expander>
+
+                        <toolkit:Expander IsExpanded="True">
+
+                            <toolkit:Expander.Header>
+
+                                <StackLayout Padding="8,0,8,0" Margin="0,0,0,10" Orientation="Horizontal">
+
+                                    <Label Text="Top Validators" Style="{StaticResource MediumHeadingExpanderLabelStyle}"/>
+
+                                    <Image Source="{StaticResource AngleDown}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Image.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type toolkit:Expander}}, Path=IsExpanded}" Value="True">
+                                                <Setter Property="Source" Value="{StaticResource AngleUp}" />
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+
+                                </StackLayout>
+
+                            </toolkit:Expander.Header>
+
+                            <StackLayout BindableLayout.ItemsSource="{Binding Validators}" Spacing="8">
+
+                                <BindableLayout.ItemTemplate>
+
+                                    <DataTemplate>
+
+                                        <StackLayout>
+
+                                            <Border Padding="10">
+
+                                                <Border.GestureRecognizers>
+
+                                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:OverviewViewModel}}, Path=ValidatorTapped}" CommandParameter="{Binding .}"/>
+
+                                                </Border.GestureRecognizers>
+
+                                                <StackLayout Spacing="8" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                                    <Frame WidthRequest="40" HeightRequest="40" CornerRadius="10" IsClippedToBounds="True" HorizontalOptions="Start">
+
+                                                        <Image WidthRequest="40" HeightRequest="40" Aspect="AspectFit" Source="{Binding Icon, TargetNullValue=icon_user}"/>
+
+                                                    </Frame>
+
+                                                    <StackLayout Spacing="6" HorizontalOptions="FillAndExpand">
+
+                                                        <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                            <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                                <Label.FormattedText>
+                                                                    <FormattedString>
+                                                                        <Span Text="{x:Static localization:Language.Moniker}" FontAttributes="Bold"/>
+                                                                        <Span Text=":" FontAttributes="Bold"/>
+                                                                    </FormattedString>
+                                                                </Label.FormattedText>
+                                                            </Label>
+
+                                                            <Label Text="{Binding Moniker, TargetNullValue={x:Static localization:Language.Empty}}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                                        </StackLayout>
+
+                                                        <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                            <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                                <Label.FormattedText>
+                                                                    <FormattedString>
+                                                                        <Span Text="Address" FontAttributes="Bold"/>
+                                                                        <Span Text=":" FontAttributes="Bold"/>
+                                                                    </FormattedString>
+                                                                </Label.FormattedText>
+                                                            </Label>
+
+                                                            <Label Text="{Binding Address}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+
+                                                </StackLayout>
+
+                                            </Border>
+
+                                        </StackLayout>
+
+                                    </DataTemplate>
+
+                                </BindableLayout.ItemTemplate>
+
+                            </StackLayout>
+
+                        </toolkit:Expander>
+
+                        <toolkit:Expander IsExpanded="True">
+
+                            <toolkit:Expander.Header>
+
+                                <StackLayout Padding="8,0,8,0" Margin="0,0,0,10" Orientation="Horizontal">
+
+                                    <Label Text="Latest blocks" Style="{StaticResource MediumHeadingExpanderLabelStyle}"/>
+
+                                    <Image Source="{StaticResource AngleDown}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Image.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding Source={RelativeSource AncestorType={x:Type toolkit:Expander}}, Path=IsExpanded}" Value="True">
+                                                <Setter Property="Source" Value="{StaticResource AngleUp}" />
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+
+                                </StackLayout>
+
+                            </toolkit:Expander.Header>
+
+                            <StackLayout BindableLayout.ItemsSource="{Binding Blocks}" Spacing="8">
+
+                                <BindableLayout.ItemTemplate>
+
+                                    <DataTemplate>
+
+                                        <StackLayout>
+
+                                            <Border Padding="10">
+
+                                                <Border.GestureRecognizers>
+
+                                                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:OverviewViewModel}}, Path=BlockTapped}" CommandParameter="{Binding .}"/>
+
+                                                </Border.GestureRecognizers>
+
+                                                <StackLayout Spacing="10" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                                    <Frame Style="{StaticResource BlockFrameStyle}">
+
+                                                        <Label Text="{Binding Height}" HorizontalOptions="Center" LineBreakMode="NoWrap" FontSize="14" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                                    </Frame>
+
+                                                    <StackLayout Spacing="6" HorizontalOptions="FillAndExpand">
+
+                                                        <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                            <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                                <Label.FormattedText>
+                                                                    <FormattedString>
+                                                                        <Span Text="{x:Static localization:Language.Proposer}" FontAttributes="Bold"/>
+                                                                        <Span Text=":" FontAttributes="Bold"/>
+                                                                    </FormattedString>
+                                                                </Label.FormattedText>
+                                                            </Label>
+
+                                                            <Label Text="{Binding Proposer}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                                        </StackLayout>
+
+                                                        <StackLayout Spacing="8" Orientation="Horizontal">
+
+                                                            <Label Style="{StaticResource SmallHeadingLabelStyle}">
+                                                                <Label.FormattedText>
+                                                                    <FormattedString>
+                                                                        <Span Text="{x:Static localization:Language.Time}" FontAttributes="Bold"/>
+                                                                        <Span Text=":" FontAttributes="Bold"/>
+                                                                    </FormattedString>
+                                                                </Label.FormattedText>
+                                                            </Label>
+
+                                                            <Label Text="{Binding Time}" Style="{StaticResource MicroCollectionViewStyle}"/>
+
+                                                        </StackLayout>
+
+                                                    </StackLayout>
+
+                                                </StackLayout>
+
+                                            </Border>
+
+                                        </StackLayout>
+
+                                    </DataTemplate>
+
+                                </BindableLayout.ItemTemplate>
+
+                            </StackLayout>
+
+                        </toolkit:Expander>
+
+                    </StackLayout>
+
+                </ScrollView>
+
+            </RefreshView>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+    
+</ContentPage>
